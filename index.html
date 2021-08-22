@@ -14,24 +14,30 @@
 
 <body>
 
-    <header>
+    <header class='jumbotron'>
         <h1>Weather Dashboard</h1>
     </header>
 
-    <div>
-        <form id="user-input">
-            <label for="city-name"> Search For a City:</label>
-            <input id="city-name" />
-            <br>
-            <button>Search</button>
-        </form>
+    <div class='container row'>
+        <aside class="col-3">
+            <form id="user-input">
+                <label for="city-name"> Search For a City:</label>
+                <input id="city-name" />
+                <br>
+                <button>Search</button>
+            </form>
+        </aside>
+
+        <div class="col-7" id="current-weather" style="border: 1px solid black;">
+
+        </div>
+    </div>
+
+    <div class="row mt-5" id='forecast-bar'>
 
     </div>
 
-    <div class="container">
-
-    </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
