@@ -1,7 +1,9 @@
+var uviEl = $('<h3>');
+
 function presentWeather(stats) {
     console.log(stats);
-    var tempEl = $('<h3>');
     var cityName = $('<h2>').addClass('card-title').text(stats.name);
+    var tempEl = $('<h3>');
     var windEl = $('<h3>') ;
     var humidityEl = $('<h3>');
     var icon = "*"
@@ -10,17 +12,19 @@ function presentWeather(stats) {
     humidityEl.text("Humidity: " + stats.main.humidity + " %");
 
 
-    $('#current-weather').append(cityName.append(icon), tempEl, windEl, humidityEl);
+    $('#current-weather').append(cityName.append(icon), tempEl, windEl, humidityEl, uviEl);
     getApi2(stats.coord.lat, stats.coord.lon);
 }
 
 function forecastWeather(stats) {
-    console.log(stats.daily[1]);
+    console.log(stats.daily[0]);
 for (var i= 1; i < 6; i++) {
     var day = moment.unix(stats.daily[i].dt).format('dddd ') ;
     var col = $('<div>').addClass('col-2')
     var card = $('<div>').addClass('card').attr('style', 'border: 1px solid black');
     var cardTitle = $("<h4>").addClass('card-title p-1').text(day);
+
+    uviEl.text("UV Index: " + stats.daily[i].uvi);
 
    
 
