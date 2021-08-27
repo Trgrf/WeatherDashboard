@@ -6,13 +6,14 @@ function presentWeather(stats) {
     var tempEl = $('<h3>');
     var windEl = $('<h3>') ;
     var humidityEl = $('<h3>');
-    var icon = "*"
-    tempEl.text("Temp: " + Math.round(stats.main.temp) + "° F");
+    var iconUrl = "http://openweathermap.org/img/w/" + stats.weather[0].icon + ".png"
+    var iconEl = $('<img>').attr('src', iconUrl).addClass('weather-img')
+    tempEl.text("Temp: " + Math.round(stats.main.temp) + "°F");
     windEl.text("Wind: " + (stats.wind.speed) + " MPH");
     humidityEl.text("Humidity: " + stats.main.humidity + " %");
 
 
-    $('#current-weather').append(cityName.append(icon), tempEl, windEl, humidityEl, uviEl);
+    $('#current-weather').append(cityName.append(iconEl), tempEl, windEl, humidityEl, uviEl);
     getApi2(stats.coord.lat, stats.coord.lon);
 }
 
@@ -23,12 +24,16 @@ for (var i= 1; i < 6; i++) {
     var col = $('<div>').addClass('col-2')
     var card = $('<div>').addClass('card').attr('style', 'border: 1px solid black');
     var cardTitle = $("<h4>").addClass('card-title p-1').text(day);
+    var minTemp = $('<h6>').addClass('card-text').text("Min-Temp: " + stats.daily[i].temp.min + "°F");
+    var maxTemp = $('<h6>').addClass('card-text').text("Max-Temp: " + stats.daily[i].temp.max + "°F");
+    var wind = $('<h6>').addClass('card-text').text("Wind: " + stats.daily[i].wind_speed + " MPH");
+    var humidity = $('<h6>').addClass('card-text').text("Humidity: " + stats.daily[i].humidity + " %");
+    var iconUrl = "http://openweathermap.org/img/w/" + stats.daily[0].weather[0].icon + ".png"
+    var iconEl = $('<img>').attr('src', iconUrl)
 
     uviEl.text("UV Index: " + stats.daily[i].uvi);
 
-   
-
-    $('#forecast-bar').append(col.append(card.append(cardTitle)));
+    $('#forecast-bar').append(col.append(card.append(cardTitle.append(iconEl), minTemp, maxTemp, wind, humidity)));
 }
 }
 
@@ -67,7 +72,7 @@ function FormSubmitHandler(event) {
     if (userInput) {
         getApi(userInput);
 
-        // $('#city-name').value = "";
+        $('#user-input').val() = " ";
     }
 }
 
