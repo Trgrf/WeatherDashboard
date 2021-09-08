@@ -6,7 +6,7 @@ function presentWeather(stats) {
     var tempEl = $('<h3>');
     var windEl = $('<h3>') ;
     var humidityEl = $('<h3>');
-    var iconUrl = "http://openweathermap.org/img/w/" + stats.weather[0].icon + ".png"
+    var iconUrl = "https://openweathermap.org/img/w/" + stats.weather[0].icon + ".png"
     var iconEl = $('<img>').attr('src', iconUrl).addClass('weather-img')
     tempEl.text("Temp: " + Math.round(stats.main.temp) + "°F");
     windEl.text("Wind: " + (stats.wind.speed) + " MPH");
