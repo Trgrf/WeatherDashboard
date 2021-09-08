@@ -38,7 +38,7 @@ for (var i= 1; i < 6; i++) {
 }
 
 function getApi(city) {
-    var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=61fa702c7ad2637a7e4e11d44c6c28a1"
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=61fa702c7ad2637a7e4e11d44c6c28a1"
 
     fetch(url)
     .then(function(response) {
