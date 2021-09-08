@@ -72,7 +72,7 @@ function FormSubmitHandler(event) {
     if (userInput) {
         getApi(userInput);
 
-        $('#user-input').val() = " ";
+        //$('#user-input').val() = " ";
     }
 }
 
